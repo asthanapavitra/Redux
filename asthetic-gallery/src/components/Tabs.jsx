@@ -8,7 +8,7 @@ const Tabs = () => {
     const activeTab=useSelector((state)=> state.search.activeTab);
     console.log(activeTab)
   return (
-    <div className='flex gap-10 px-10 py-5 '>
+    <div className='flex gap-10 px-10 py-5 w-full justify-center'>
       {
         tabs.map((elem,idx)=>{
             return (
