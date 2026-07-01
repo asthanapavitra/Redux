@@ -1,18 +1,21 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addCollection, addedToast } from "../redux/features/collectionSlice";
+import {
+  addedToast,
+  removeCollection,
+  removeToast,
+} from "../redux/features/collectionSlice";
 
-const ResultCard = ({ item }) => {
-  const dispatch= useDispatch();
-  const addToCollection=(item)=>{
-   dispatch(addCollection(item));
-   dispatch(addedToast("Added to Collection 😜"));
-  
-  }
+const CollectionCard = ({ item }) => {
+  const dispatch = useDispatch();
+  const removeFromCollection = (item) => {
+    dispatch(removeCollection(item));
+    dispatch(removeToast("Removed From Collection ⚡"));
+  };
   return (
     <div className=" relative  w-[17vw] h-70  ">
       <div className="w-full h-full ">
-        <a  target="_blank" href={item.src}>
+        <a target="_blank" href={item.src}>
           {item.type == "video" ? (
             <video
               autoPlay
@@ -37,17 +40,18 @@ const ResultCard = ({ item }) => {
       >
         {item.title}
       </h2>
-      <button 
-      onClick={()=>{
-        addToCollection(item)
-      }}
-      className="absolute top-2 right-2 px-4 py-2 font-semibold cursor-pointer
-       bg-white/90 hover:bg-white text-gray-900 text-sm rounded-full shadow-md 
-       backdrop-blur-sm transition-colors duration-150 active:scale-95">
-  Save
-</button>
+      <button
+        onClick={() => {
+          removeFromCollection(item);
+        }}
+        className="absolute top-2 right-2 px-4 py-2 font-semibold cursor-pointer
+       bg-(--c3)  text-white text-sm rounded-full shadow-md  hover:bg-(--c4)
+       backdrop-blur-sm transition-colors duration-150 active:scale-95"
+      >
+        Remove
+      </button>
     </div>
   );
 };
 
-export default ResultCard;
+export default CollectionCard;

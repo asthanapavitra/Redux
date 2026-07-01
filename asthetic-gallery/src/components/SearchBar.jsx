@@ -27,7 +27,7 @@ const SearchBar = () => {
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder="Example: cat"
-          className=" w-full border-3 px-4 py-2 outline-none rounded text-xl"
+          className=" w-full border-3 px-4 py-2 outline-none bg-(--c1) rounded text-xl"
           style={{ borderColor: isFocused ? "var(--c4)" : undefined }}
           type="text"
         />
