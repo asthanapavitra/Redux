@@ -9,7 +9,10 @@ const CollectionPage = () => {
   return (
     <div className="px-10 py-4">
       {collection.length == 0 ? (
-        <h2 className="text-2xl text-center py-10 font-medium "> Collection is Empty </h2>
+        <h2 className="text-2xl text-center py-10 font-medium ">
+          {" "}
+          Collection is Empty{" "}
+        </h2>
       ) : (
         <div>
           <button
