@@ -2,3 +2,11 @@
 #bottom {
     background: linear-gradient(transparent, black);
 }
+
+:root {
+  --c1: #191528;
+  --c2: #3c162f;
+  --c3: #5c162e;
+  --c4: #812d41;
+  --c5: #110e1b;
+}

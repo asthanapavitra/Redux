@@ -29,7 +29,7 @@ const ResultGrid = () => {
             }));
           } else if (activeTab == "videos") {
             let response = await fetchVideos(query);
-            console.log(response.videos);
+     
             data = response.videos.map((item) => ({
               id: item.id,
               title: item.user.name,
@@ -39,7 +39,7 @@ const ResultGrid = () => {
             }));
           } else {
             let response = await fetchGifs(query);
-            console.log(response.data);
+    
             data = response.data.map((item) => ({
               id: item.id,
               title: item.title,
@@ -50,7 +50,7 @@ const ResultGrid = () => {
           }
           dispatch(setResults(data));
         } catch (err) {
-          console.log(err);
+         
           dispatch(setError(err.message));
         }
       }

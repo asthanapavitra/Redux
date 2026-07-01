@@ -6,10 +6,10 @@ const SearchBar = () => {
   const dispatch = useDispatch();
   const query = useSelector((state) => state.search.query);
   const [searchItem, setSearchItem] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(setQuery(searchItem));
-    console.log(query);
   };
   return (
     <div className="w-full">
@@ -17,17 +17,21 @@ const SearchBar = () => {
         onSubmit={(e) => {
           submitHandler(e);
         }}
-        className="bg-gray-900 w-full flex justify-center gap-5 px-4 py-6 "
+        className="bg-(--c3) w-full flex justify-center gap-5 px-6 py-6 "
       >
         <input
           value={searchItem}
           onChange={(e) => {
             setSearchItem(e.target.value);
           }}
-          className=" w-[80%] border-2 px-4 py-2 outline-none rounded text-xl"
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          placeholder="Example: cat"
+          className=" w-full border-3 px-4 py-2 outline-none rounded text-xl"
+          style={{ borderColor: isFocused ? "var(--c4)" : undefined }}
           type="text"
         />
-        <button className=" border-2 px-4 py-2 outline-none rounded text-lg cursor-pointer active:scale-95">
+        <button className="hover:bg-(--c4) border-3 px-4 py-2 outline-none rounded text-lg cursor-pointer active:scale-95">
           Search
         </button>
       </form>
